@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public float maxPosX;
 
     public float moveDistance = 1f;
+    public float rotationSpeed = 50f;
 
     bool isMovingRight = true;
 
@@ -42,8 +43,8 @@ public class EnemyController : MonoBehaviour
 
 			if (countdown <= 0)
 			{
-				Move();
-				countdown = timeStep;
+				Move();                
+                countdown = timeStep;
 			}
 		}
     }
@@ -57,7 +58,7 @@ public class EnemyController : MonoBehaviour
             Vector3 newPos = currentPos + new Vector3(moveDistance, 0f);
             transform.position = newPos;
 
-            // If aliens group reached the right-most edge, flip their direction
+                        // If aliens group reached the right-most edge, flip their direction
             if (transform.position.x >= maxPosX)
             {
                 isMovingRight = false;
@@ -70,11 +71,25 @@ public class EnemyController : MonoBehaviour
             Vector3 newPos = currentPos - new Vector3(moveDistance, 0f);
             transform.position = newPos;
 
-            // If aliens group reached the left-most edge, flip their direction
+                        // If aliens group reached the left-most edge, flip their direction
             if (transform.position.x <= minPosX)
             {
                 isMovingRight = true;
             }
         }
-    }
+        // Rotate individual sprites based on direction
+        foreach (Transform child in transform)
+        {
+            if (isMovingRight)
+            {
+                child.rotation = Quaternion.Euler(0, 0, -15f); // Tilt right
+            }
+            else
+            {
+                child.rotation = Quaternion.Euler(0, 0, 15f);  // Tilt left
+            }
+        }
+    
+}
+    
 }
