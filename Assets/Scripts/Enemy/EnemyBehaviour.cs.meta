@@ -3,7 +3,9 @@ guid: 7a08ceecdfb38ea469495665b36fe552
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - destructionSFX: {instanceID: 0}
+  - lantern_ON_Prefab: {fileID: 9216441255105455351, guid: b7cb1163dcca4094db79e5c3eaec8708, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
