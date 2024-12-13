@@ -70,6 +70,7 @@ public class Shooter : MonoBehaviour
         isHoldingButton = false;
         spriteRenderer.sprite = Bow_and_arrow_GO;
         PlayReleaseAudio();
+        Invoke(nameof(SetBowAndArrowReadySprite), 0.2f);
 
     }
     private void PlayReleaseAudio()

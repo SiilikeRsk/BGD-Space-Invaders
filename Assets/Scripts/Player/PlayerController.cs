@@ -14,12 +14,7 @@ public class PlayerController : MonoBehaviour
     public float rightScreenEdge;
     public float leftScreenEdge;
 
-    public Sprite Bow_and_arrow_READY;
-    public Sprite Bow_and_arrow_SET;
-    public Sprite Bow_and_arrow_GO;
-
-    private SpriteRenderer spriteRenderer;
-
+    
 
     // Start is called before the first frame update
     void Start()
