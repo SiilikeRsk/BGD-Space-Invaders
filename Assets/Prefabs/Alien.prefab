@@ -144,4 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a08ceecdfb38ea469495665b36fe552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionSFX: {fileID: 8300000, guid: 11090f2050b424347995f46b9968bfdc, type: 3}
+  destructionSFX: {fileID: 8300000, guid: 37e2aa09b9c100b4b832c551c3a813ac, type: 3}
+  lantern_ON_Prefab: {fileID: 9216441255105455351, guid: b7cb1163dcca4094db79e5c3eaec8708, type: 3}
