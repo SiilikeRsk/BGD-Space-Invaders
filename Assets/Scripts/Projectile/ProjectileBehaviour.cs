@@ -61,12 +61,10 @@ public class ProjectileBehaviour : MonoBehaviour
         if (isUsingArrowA)
         {
             spriteRenderer.sprite = Arrow_GO_b;
-            print("BBBBBBB");
         }
         else
         {
             spriteRenderer.sprite = Arrow_GO_a;
-            print("AAAAAAA");
         }
 
         isUsingArrowA = !isUsingArrowA;

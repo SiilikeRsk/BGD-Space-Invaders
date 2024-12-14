@@ -9,19 +9,26 @@ public class EnemyBehaviour : MonoBehaviour
     public AudioClip destructionSFX;
     public GameObject lantern_ON_Prefab; // Prefab for the lantern_ON sprite
     public string lanternTag = "Lantern";
-    public GameObject gameOver;
+    
+    public GameController gameController;
 
     private Quaternion initialRotation;
 
+
+
     void Start()
     {
-        initialRotation = transform.rotation;
-        if (gameOver != null)
+        // Automatically find and assign the GameController in the scene
+        gameController = FindObjectOfType<GameController>();
+
+        if (gameController == null)
         {
-            gameOver.SetActive(false);
+            Debug.LogError("GameController is not found in the scene!");
         }
     }
 
+
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("I was triggered!");
@@ -70,12 +77,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (lanterns.Length <= 0)
         {
-            print("ALL LANTERNS ARE GONE!");
-            if (gameOver != null)
+            print("WE HAVE NO LANTERNS");
+            if (gameController != null)
             {
-                gameOver.SetActive(true);
+                gameController.ShowEndScreen();
             }
-            Debug.Log("No Checked Lanterns left in the scene!");
+            else
+            {
+                Debug.LogError("GameController reference is missing!");
+            }
         }
     }
 
