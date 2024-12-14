@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
     public float minPosX;
     public float maxPosX;
 
-    public float moveDistance = 1f;
+    public float moveDistance = 0.6f;
     public float rotationSpeed = 50f;
 
     bool isMovingRight = true;
