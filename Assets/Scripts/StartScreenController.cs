@@ -7,12 +7,7 @@ public class StartScreenController : MonoBehaviour
 {
     public MusicManager musicManager; // Reference to the MusicManager
 
-    public void StartGame()
-    {
-        // Load the main game scene
-        SceneManager.LoadScene("MainScene"); // Replace "MainScene" with your actual scene name
-    }
-
+    
     public void PlayMusic1()
     {
         if (musicManager != null) musicManager.PlayMusic1();

@@ -18,7 +18,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        // Automatically find and assign the GameController in the scene
         gameController = FindObjectOfType<GameController>();
 
         if (gameController == null)
@@ -39,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
             // Destroy the current game object (lantern_OFF)
             Destroy(gameObject);
 
-            // Spawn the lantern_ON prefab at the same location and rotation
+            // Spawn the lantern_ON prefab at the same location and orig. rotation
             if (lantern_ON_Prefab != null)
             {
                 GameObject lantern_ON = Instantiate(lantern_ON_Prefab, transform.position, initialRotation);
@@ -91,7 +90,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Call CheckForRemainingLanterns when this lantern is destroyed
+        // Call CheckForRemainingLanterns when a lantern is destroyed
         CheckForRemainingLanterns();
     }
 }

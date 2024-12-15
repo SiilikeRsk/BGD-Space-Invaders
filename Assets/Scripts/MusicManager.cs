@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip music1; // Music track 1
-    public AudioClip music2; // Music track 2
-    public AudioClip music3; // Music track 3
-    public AudioClip music4; // Music track 4
+    public AudioClip music1;
+    public AudioClip music2;
+    public AudioClip music3;
+    public AudioClip music4;
 
-    private AudioSource audioSource; // The audio source component
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,9 @@ public class MusicManager : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-
-        // Set default audio source properties
-        audioSource.loop = true; // Ensure music loops
-        audioSource.volume = 0.5f; // Adjust volume as needed
+               
+        audioSource.loop = true;
+        audioSource.volume = 0.5f; 
     }
     public IEnumerator FadeOut()
     {

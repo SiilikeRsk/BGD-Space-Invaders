@@ -76,8 +76,7 @@ public class Shooter : MonoBehaviour
     private void PlayReleaseAudio()
     {
         if (Let_arrow_fly != null)
-        {
-            // Play the audio clip at the object's position
+        {            
             AudioSource.PlayClipAtPoint(Let_arrow_fly, transform.position);
         }
         else
@@ -89,8 +88,7 @@ public class Shooter : MonoBehaviour
     private void PlayDrawAudio()
     {
         if (Bow_loading != null)
-        {
-            // Play the audio clip at the object's position
+        {            
             AudioSource.PlayClipAtPoint(Bow_loading, transform.position);
         }
         else

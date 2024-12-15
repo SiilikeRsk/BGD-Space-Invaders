@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
 		{	
 			// Invoke repeating will be called once after timeStep (2nd parameter) amount,
 			// and then repeatedly every timeStep (3rd parameter) amount
-			//InvokeRepeating("Move", timeStep, timeStep);
 			InvokeRepeating("Move", timeStep, timeStep);
 		}
     }

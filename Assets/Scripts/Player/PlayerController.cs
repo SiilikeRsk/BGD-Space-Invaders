@@ -50,8 +50,7 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         float inputHl = Input.GetAxis("Horizontal");
-
-        // Handle Keyboard Input (Desktop)
+                
         if (inputHl > 0 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
         {
             // Move right
@@ -63,8 +62,7 @@ public class PlayerController : MonoBehaviour
             MovePlayer(Vector3.left);
         }
 
-        // Handle Touch Input (Mobile)
-        if (Input.touchCount > 0)
+        /*if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -80,33 +78,14 @@ public class PlayerController : MonoBehaviour
                 // Move left
                 MovePlayer(Vector3.left);
             }
-        }
+        }*/
     }
-
-    // Helper Method for Moving the Player
-    void MovePlayer(Vector3 direction)
+        
+    void MovePlayer(Vector3 direction) //void made for touch screen testing
     {
         Vector3 currentPosition = transform.position;
         Vector3 newPosition = currentPosition + direction;
         transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

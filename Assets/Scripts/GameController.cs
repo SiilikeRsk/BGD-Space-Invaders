@@ -22,12 +22,7 @@ public class GameController : MonoBehaviour
             endScreen.SetActive(false);
         }
     }
-    public void StartGame()
-    {
-        // Load the main game scene
-        SceneManager.LoadScene("Start screen"); // Replace "MainScene" with your actual scene name
-    }
-
+    
     public void PlayMusic1()
     {
         if (musicManager != null) musicManager.PlayMusic1();
@@ -58,7 +53,7 @@ public class GameController : MonoBehaviour
         if (endScreen != null)
         {
             endScreen.SetActive(true);
-            Time.timeScale = 1; // Don't? Pause the game
+            Time.timeScale = 1; // Don't! pause the game
         }
         else
         {
