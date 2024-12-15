@@ -1497,6 +1497,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 239242284761559230, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1771327723}
     - target: {fileID: 2369062776193324066, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1560,6 +1564,18 @@ PrefabInstance:
     - target: {fileID: 2369062776193324076, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673151659379546564, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673151659379546564, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673151659379546564, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3673151660865946134, guid: 3d4f7277b58d1804693a9b771da66628, type: 3}
       propertyPath: m_Size.x
