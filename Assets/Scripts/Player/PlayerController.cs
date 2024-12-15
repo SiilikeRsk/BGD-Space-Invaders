@@ -51,33 +51,47 @@ public class PlayerController : MonoBehaviour
     {
         float inputHl = Input.GetAxis("Horizontal");
 
-        // if pressed right (inputHl will be 1) and the player character hasn't crossed the right limit of the screen,
-        // allow them to keep moving right
+        // Handle Keyboard Input (Desktop)
         if (inputHl > 0 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
         {
-            // Move to the right
-
-            Vector3 currentPosition = transform.position;
-
-            // we ADD 1 point along the X direction
-            Vector3 newPosition = currentPosition + new Vector3(1f, 0f);
-
-            // Apply the movement to the player character's position, adjusted by the speed and deltaTime
-            transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
+            // Move right
+            MovePlayer(Vector3.right);
         }
         else if (inputHl < 0 && transform.position.x > leftScreenEdge + playerSpriteHalfWidth)
         {
-            // Move to the left
+            // Move left
+            MovePlayer(Vector3.left);
+        }
 
-            Vector3 currentPosition = transform.position;
+        // Handle Touch Input (Mobile)
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
 
-            // we SUBTRACT 1 point along the X direction
-            Vector3 newPosition = currentPosition - new Vector3(1f, 0f);
-
-            transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
+            // Check if the touch is on the right side of the screen
+            if (touch.position.x > Screen.width / 2 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
+            {
+                // Move right
+                MovePlayer(Vector3.right);
+            }
+            // Check if the touch is on the left side of the screen
+            else if (touch.position.x <= Screen.width / 2 && transform.position.x > leftScreenEdge + playerSpriteHalfWidth)
+            {
+                // Move left
+                MovePlayer(Vector3.left);
+            }
         }
     }
-    
+
+    // Helper Method for Moving the Player
+    void MovePlayer(Vector3 direction)
+    {
+        Vector3 currentPosition = transform.position;
+        Vector3 newPosition = currentPosition + direction;
+        transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
+    }
+
+
 
 
 
