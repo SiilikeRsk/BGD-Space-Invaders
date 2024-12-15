@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
         if (endScreen != null)
         {
             endScreen.SetActive(true);
-            Time.timeScale = 0; // Pause the game
+            Time.timeScale = 1; // Don't? Pause the game
         }
         else
         {
