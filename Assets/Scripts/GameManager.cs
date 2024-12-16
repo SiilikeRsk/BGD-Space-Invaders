@@ -19,6 +19,15 @@ public class GameManager : MonoBehaviour
         gameContent.SetActive(true);
     }
 
+    public void BackToStart()
+    {
+        // Show the Start Screen and hide the Game Content and End Screen
+        startScreen.SetActive(false);
+        gameContent.SetActive(false);
+        endScreen.SetActive(false);
+    }
+
+
     public void ShowEndScreen()
     {        
         gameContent.SetActive(false);
