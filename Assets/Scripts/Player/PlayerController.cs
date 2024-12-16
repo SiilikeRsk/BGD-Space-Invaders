@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float rightScreenEdge;
     public float leftScreenEdge;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,33 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float inputHl = Input.GetAxis("Horizontal");
-
-        // if pressed right (inputHl will be 1) and the player character hasn't crossed the right limit of the screen,
-        // allow them to keep moving right
-        if (inputHl > 0 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
-        {
-            // Move to the right
-
-            Vector3 currentPosition = transform.position;
-
-            // we ADD 1 point along the X direction
-            Vector3 newPosition = currentPosition + new Vector3(1f, 0f);
-
-            // Apply the movement to the player character's position, adjusted by the speed and deltaTime
-            transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
-        }
-        else if (inputHl < 0 && transform.position.x > leftScreenEdge + playerSpriteHalfWidth)
-        {
-            // Move to the left
-
-            Vector3 currentPosition = transform.position;
-
-            // we SUBTRACT 1 point along the X direction
-            Vector3 newPosition = currentPosition - new Vector3(1f, 0f);
-
-            transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
-        }
+        Move();
     }
 
     void SetupScreenBounds()
@@ -72,21 +47,45 @@ public class PlayerController : MonoBehaviour
         playerSpriteHalfWidth = playerSprite.bounds.size.x / 2f;
     }
 
+    void Move()
+    {
+        float inputHl = Input.GetAxis("Horizontal");
+                
+        if (inputHl > 0 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
+        {
+            // Move right
+            MovePlayer(Vector3.right);
+        }
+        else if (inputHl < 0 && transform.position.x > leftScreenEdge + playerSpriteHalfWidth)
+        {
+            // Move left
+            MovePlayer(Vector3.left);
+        }
 
+        /*if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            // Check if the touch is on the right side of the screen
+            if (touch.position.x > Screen.width / 2 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
+            {
+                // Move right
+                MovePlayer(Vector3.right);
+            }
+            // Check if the touch is on the left side of the screen
+            else if (touch.position.x <= Screen.width / 2 && transform.position.x > leftScreenEdge + playerSpriteHalfWidth)
+            {
+                // Move left
+                MovePlayer(Vector3.left);
+            }
+        }*/
+    }
+        
+    void MovePlayer(Vector3 direction) //void made for touch screen testing
+    {
+        Vector3 currentPosition = transform.position;
+        Vector3 newPosition = currentPosition + direction;
+        transform.position = Vector3.MoveTowards(currentPosition, newPosition, moveSpeed * Time.deltaTime);
+    }
 
 }
