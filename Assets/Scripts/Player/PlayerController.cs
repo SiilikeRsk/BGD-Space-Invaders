@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float rightScreenEdge;
     public float leftScreenEdge;
 
-    
+    bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (canMove)
+        {
+            Move();
+
+        }
+    }
+
+    public void FreezePlayer()
+    {
+        canMove = false;
     }
 
     void SetupScreenBounds()
