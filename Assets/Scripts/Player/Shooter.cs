@@ -38,18 +38,12 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-
-        }
-
-
-        if (Input.GetButtonDown("Jump") || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        if (Input.GetButtonDown("Jump"))
         {
             StartHoldingButton();
         }
         // Check for Jump button release
-        else if (Input.GetButtonUp("Jump") || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+        else if (Input.GetButtonUp("Jump"))
         {
             StopHoldingButton();
             Shoot();

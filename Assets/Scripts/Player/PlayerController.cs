@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float rightScreenEdge;
     public float leftScreenEdge;
 
-    bool canMove = true;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
-        {
-            Move();
-
-        }
-    }
-
-    public void FreezePlayer()
-    {
-        canMove = false;
+        Move();
     }
 
     void SetupScreenBounds()
@@ -71,23 +62,6 @@ public class PlayerController : MonoBehaviour
             MovePlayer(Vector3.left);
         }
 
-        /*if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            // Check if the touch is on the right side of the screen
-            if (touch.position.x > Screen.width / 2 && transform.position.x < rightScreenEdge - playerSpriteHalfWidth)
-            {
-                // Move right
-                MovePlayer(Vector3.right);
-            }
-            // Check if the touch is on the left side of the screen
-            else if (touch.position.x <= Screen.width / 2 && transform.position.x > leftScreenEdge + playerSpriteHalfWidth)
-            {
-                // Move left
-                MovePlayer(Vector3.left);
-            }
-        }*/
     }
         
     void MovePlayer(Vector3 direction) //void made for touch screen testing

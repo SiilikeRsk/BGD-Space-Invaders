@@ -43,11 +43,11 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 GameObject lantern_ON = Instantiate(lantern_ON_Prefab, transform.position, initialRotation);
 
-                // Ensure the lantern_ON floats up using negative gravity
+                // lantern_ON floats up using negative gravity
                 Rigidbody2D rb2D = lantern_ON.GetComponent<Rigidbody2D>();
                 if (rb2D != null)
                 {
-                    rb2D.gravityScale = -1; // Apply negative gravity to make it float upwards
+                    rb2D.gravityScale = -1; 
                 }
             }
             else
@@ -90,7 +90,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Call CheckForRemainingLanterns when a lantern is destroyed
         CheckForRemainingLanterns();
     }
 }

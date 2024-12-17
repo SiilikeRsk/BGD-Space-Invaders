@@ -10,13 +10,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject endScreen; // Reference to the End Screen panel
-    public MusicManager musicManager; // Reference to the MusicManager
+    public GameObject endScreen; 
+    public MusicManager musicManager;
    
 
     void Start()
     {
-        // Ensure the end screen is hidden at the start
         if (endScreen != null)
         {
             endScreen.SetActive(false);
@@ -53,7 +52,7 @@ public class GameController : MonoBehaviour
         if (endScreen != null)
         {
             endScreen.SetActive(true);
-            Time.timeScale = 1; // Don't! pause the game
+            Time.timeScale = 1; // Don't! pause the game, for pause, change to 0.
         }
         else
         {
